@@ -7,42 +7,32 @@
 body {
   background: #F5F7FB;
   font-family: "Karla", sans-serif;
-  margin: 0 auto;
   color: #293264;
-  overflow: clip;  
+
 }
+
 main {
   display: flex; 
+  width: 100%;
   justify-content: center;
-  overflow: clip;  
-  min-width: 550px;
   align-items: center;
-  height: 100vh;
+  overflow: clip;
 }
 
-.container .blob-top {
-  overflow: clip;  
-  position: absolute;
-  right: -230px;
-  top: -230px;
-  border-radius: 94% 31% 30% 67% / 67% 37% 56% 34%;
-  width: 300px;
-  height: 400px;
-  background: #FFFAD1;
-  transform: rotate(-128.49deg);
+.select-section  {
+  padding: 20px 0;
 }
 
-.container .blob-bottom{
-  overflow: hidden;  
-  position: absolute;
-  left: -200px;
-  bottom: -120px;
-  border-radius: 54% 41% 30% 44% / 49% 37% 66% 44%;
-  width: 350px;
-  height: 250px;
-  background: #DEEBF8;
-  transform: rotate(180deg);
+.select-list {
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-family: "Inter", sans-serif;
+  border: 1px solid #4D5B9E;
+  cursor: pointer;
+  color: #4D5B9E;
 }
+
 
 button {
   background-color: #4D5B9E;
@@ -57,19 +47,24 @@ button {
 }
 
 .start-section {
+  width: 100%;
   text-align: center;
   vertical-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100vh;
 }
 
 .question-section {
-  padding: 10%;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 10px;
+  width: 100%;
+  overflow: clip;
+
 }
 
 .question-section button {
@@ -87,8 +82,10 @@ button {
 
 .answer-section {
   display: flex;
-  gap: 10px;   
+  flex-wrap: wrap;
+  gap: 6px;   
   align-items: center;
+  width: 100%;
   font-family: "Inter", sans-serif;
 }
 
@@ -137,4 +134,37 @@ button {
   align-items: center;   
   justify-content:  center;
   gap: 10px;
+}
+
+@media (min-width: 550px) {
+  .question-section{
+    width: 750px;
+    position: relative;
+    
+    
+  }
+  .container .blob-top {
+    overflow: clip;  
+    position: absolute;
+    right: -230px;
+    top: -230px;
+    border-radius: 94% 31% 30% 67% / 67% 37% 56% 34%;
+    width: 300px;
+    height: 400px;
+    background: #FFFAD1;
+    transform: rotate(-128.49deg);
+  }
+  
+  .container .blob-bottom{
+    overflow: hidden;  
+    position: absolute;
+    left: -200px;
+    bottom: -140px;
+    border-radius: 54% 41% 30% 44% / 49% 37% 66% 44%;
+    width: 350px;
+    height: 250px;
+    background: #DEEBF8;
+    transform: rotate(180deg);
+  }
+  
 }

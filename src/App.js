@@ -6,17 +6,43 @@ import {nanoid} from "nanoid"
 export default function App(){
     
     const [start, setStart] = React.useState(true)
+
+    const [category, setCategory] = React.useState(
+        {
+            categoryId: ""
+        })
+
+        function handleChange(event){
+            const {value} = event.target
+            console.log(value)
+             setCategory(prev => {
+                
+              return {
+                  ...prev,
+                  categoryId: value
+              }
+             })
+             console.log(category)
+             
+          }
+      
+          function handleSubmit(event){
+              event.preventDefault()
+          }
+
+    const selectedCategoryId = category.categoryId
     const [trivia, setTriviaData] = React.useState([])
-    
+   
     //get the trivia data from the API and store it in state
     React.useEffect(() => {
+        
         async function getTrivia() {
-            const res = await fetch("https://opentdb.com/api.php?amount=5")
+            const res = await fetch(`https://opentdb.com/api.php?amount=5&category=${selectedCategoryId}`)
             const data = await res.json()
             setTriviaData(data.results)
         }
         getTrivia()
-    }, [start])
+    }, [start, selectedCategoryId])
     
     //function to decode special characters
     function decode(html){
@@ -113,10 +139,11 @@ export default function App(){
          let score = []
          
          quiz.map(quiz => 
-            quiz.answers.map(answer => {
-                 if(answer.isCorrect && answer.isSelected){
-                     score.push(answer.answer)
-                 }
+            quiz.answers.map(answer =>  {
+                if(answer.isCorrect && answer.isSelected){
+                    score.push(answer.answer)
+            }
+             
              })
          )
          setScore(score)
@@ -151,7 +178,9 @@ export default function App(){
                 </div>
             </div>
             
-            {start ? <Start startQuiz={startQuiz} /> : 
+            {start ? <Start startQuiz={startQuiz}
+                             handleChange={handleChange}
+                             handleSubmit={handleSubmit}/> : 
                 <section className="question-section">
                     {questionBlock}
                     {!gameOver ? <button onClick={check}>Check Answers</button> : 

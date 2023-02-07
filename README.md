@@ -34,7 +34,7 @@ The React project should consist of
 
 ### Screenshot
 
-![Quizzical App](./screenshot.jpg)
+![Quizzical App](https://github.com/KateIvesDev/quizzical/blob/4249306228c9ee98e6033258f78553f931ed9b24/Quizzical2.gif)
 
 
 ### Links

@@ -1,6 +1,6 @@
 # Quizzical React App
 
-This is a solution for the final Solor project of the Scrimba React Course. 
+This is a solution for the final solo project of the Scrimba React Course. 
 
 ## Table of contents
 
